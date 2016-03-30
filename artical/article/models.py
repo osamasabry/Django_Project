@@ -3,19 +3,18 @@ from __future__ import unicode_literals
 from django.db import models
 
 # Create your models here.
-
-class User(models.Model):
+class User (models.Model):
 	user_name=models.CharField(max_length=255)
 	user_email=models.CharField(max_length=255)
-	user_password=models.CharField(max_length=255)
+	user_password=models.CharField(max_length=20)
 	user_img=models.CharField(max_length=255)
-	user_type=models.CharField(max_length=255)
+	user_type=models.CharField(max_length=20)
 	user_status=models.BooleanField(default=1)
 	user_secret_quation=models.CharField(max_length=255)
 	user_secret_answer=models.CharField(max_length=255)
 
 	def __str__(self):
-		return self.user_name
+		 return self.user_name
 
 class Article(models.Model):
 	art_title=models.CharField(max_length=255)
@@ -42,4 +41,18 @@ class Comment(models.Model):
 	Comment_art_id=models.ForeignKey(Article,on_delete=models.CASCADE)
 	def __str__(self):
 		 return self.Comment_content
-		
+
+class  Banwords(models.Model):
+	banword_name=models.CharField(max_length=255)
+	def __str__(self):
+		 return self.banword_name
+
+class Emotions(models.Model):
+	emotion_letter=models.CharField(max_length=255)
+	emotion_img=models.CharField(max_length=255)
+	def __str__(self):
+		 return self.emotion_letter
+
+
+
+
